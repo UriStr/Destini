@@ -6,17 +6,9 @@ import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.TextView;
 
-public abstract class StateAbstract implements StateInterface, Parcelable {
+import java.io.Serializable;
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
+public abstract class StateAbstract implements StateInterface {
 
     protected static TextView mTextView;
     protected static Button mTopButton;
@@ -28,9 +20,15 @@ public abstract class StateAbstract implements StateInterface, Parcelable {
         this.mBottomButton = mainActivity.getBottomButton();
         this.mTopButton = mainActivity.getTopButton();
         this.mTextView = mainActivity.getTextView();
+        mainActivity.setStateString(this.toString());
     }
 
     public abstract void updateTopButton();
 
     public abstract void updateBottomButton();
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
 }
