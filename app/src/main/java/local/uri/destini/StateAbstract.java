@@ -20,7 +20,6 @@ public abstract class StateAbstract implements StateInterface {
         this.mBottomButton = mainActivity.getBottomButton();
         this.mTopButton = mainActivity.getTopButton();
         this.mTextView = mainActivity.getTextView();
-        mainActivity.setStateString(this.toString());
     }
 
     public abstract void updateTopButton();
@@ -31,4 +30,5 @@ public abstract class StateAbstract implements StateInterface {
     public String toString() {
         return this.getClass().getSimpleName();
     }
+
 }
